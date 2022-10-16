@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 
 const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
@@ -24,6 +25,16 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
       </ul>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  itemsCount: PropTypes.number,
+  pageSize: PropTypes.number,
+  onPageChange: PropTypes.func,
+  currentPage: PropTypes.exact({
+    optionalProperty: PropTypes.number,
+    requiredProperty: PropTypes.number.isRequired,
+  }),
 };
 
 export default Pagination;
